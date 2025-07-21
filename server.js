@@ -11,6 +11,10 @@ app.use(express.json());
 const CLIENT_ID = process.env.GITHUB_CLIENT_ID; // from GitHub OAuth app
 const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET; // from GitHub OAuth app
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 app.post('/api/github/exchange', async (req, res) => {
   const { code } = req.body;
 
