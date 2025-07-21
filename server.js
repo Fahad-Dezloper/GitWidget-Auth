@@ -18,8 +18,6 @@ app.get('/', (req, res) => {
 app.post('/api/github/exchange', async (req, res) => {
   const { code } = req.body;
 
-  console.log("request happpen",  code)
-
   if (!code) {
     return res.status(400).json({ error: 'Missing code' });
   }
@@ -40,8 +38,6 @@ app.post('/api/github/exchange', async (req, res) => {
     );
 
     const { access_token } = response.data;
-
-    console.log("access token here", access_token);
 
     if (!access_token) {
       return res.status(400).json({ error: 'No access token received', data: response.data });
